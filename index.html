@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TBRABM Statistics Visualization</title>
+    
+
+	<!-- Bootstrap Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Bootstrap Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Bootstrap Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Leaflet SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css" />
+
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+	
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/main.css" />
+ 
+
+	
+</head>
+
+
+<body>
+
+
+<!-- Layout -->	
+
+<!-- Title -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top"> 
+	<div class="container-fluid">
+	      <ul class="nav navbar-nav navbar-left">
+            <li><a href="#"> <h4 style="color: white" id="title">Top 10 Trip Destinations by External Stations - Original Passive OD </h4> </a></li>
+          </ul>
+	</div>
+</nav>
+
+
+<div id= "search-bar" >
+<div class="container" >
+	<div class="row">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Please enter a TAZ #"  id="mySearch"/>
+                    <span class="input-group-btn"  >
+                        <button class="btn btn-info btn-lg" type="button" >
+                            <i class="glyphicon glyphicon-search" style="color:white;" onclick="returnTAZ ()" >  </i> 
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+</div>
+
+
+<div id="parent">
+	<!-- Map-->	
+	<div id="map" ></div>
+						
+	<!-- Data-->	
+	<div id="data_chart" >   
+
+				
+	    <!-- Tab panes -->
+	    <div class="tab-content">
+  	 	
+			<!-- AADT Tab panes -->
+			<div role="tabpanel" id="aadt" class="tab-pane fade in active" >
+			
+				<h4>Top 10 EI Trip Destination</h4>
+				<div class="chart-title"> <h5>Origin TAZ #:&nbsp;</h5> </div>
+				<div class="chart-title"> <h5 id='chartsta'> </h5> </div>
+				
+				<canvas id="myChart" style="width: 500px;height:200px;"></canvas>	
+		
+				<br><br>
+
+				<div class="table-title"> <h5>Origin TAZ #:&nbsp;</h5> </div>
+				<div class="table-title"> <h5 id='tablesta'> </h5> </div>
+				
+				<table class="table table-bordered"> 			
+				    <thead>
+				   	    <tr>
+							<th>Top 1 </th>
+							<th>Top 2 </th>
+							<th>Top 3 </th>
+							<th>Top 4 </th>
+							<th>Top 5 </th>
+							<th>Top 6 </th>
+							<th>Top 7 </th>
+							<th>Top 8 </th>
+							<th>Top 9 </th>
+							<th>Top 10 </th>
+					    </tr>
+					</thead>
+				
+					<tbody>
+						<tr>
+							<td id='top1_title'> </td> 
+							<td id='top2_title'> </td>
+							<td id='top3_title'> </td>
+							<td id='top4_title'> </td>
+							<td id='top5_title'> </td>
+							<td id='top6_title'> </td>
+							<td id='top7_title'> </td>
+							<td id='top8_title'> </td>
+							<td id='top9_title'> </td>
+							<td id='top10_title'></td>
+						</tr>
+						<tr>
+							<td id='top1'>0</td>
+							<td id='top2'>0</td>
+							<td id='top3'>0</td>
+							<td id='top4'>0</td>
+							<td id='top5'>0</td>
+							<td id='top6'>0</td>
+							<td id='top7'>0</td>
+							<td id='top8'>0</td>
+							<td id='top9'>0</td>
+							<td id='top10'>0</td>									
+						</tr>
+					</tbody>
+					
+				</table>
+			</div> 		
+				
+		<!-- End of Tab panes -->
+	    </div>
+
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+
+<!-- Echart Leaflet JS -->
+<script src="dist/main.min.js"></script>
+
+<!-- Chart.js -->
+<script src="src/Chart.js"></script>
+<script src="src/Chart.bundle.js"></script>
+		
+<!-- D3 JS -->
+<script src="src/d3.js"></script>
+
+
+<!-- Top Destination Data -->
+<script type="text/javascript" src="js/centroid_data.js"></script>
+<script type="text/javascript" src="r_output/top10_originalOD.js"></script>
+
+
+
+
+
+<!-- Leaflet Map -->
+<script>
+    var map = L.map('map').setView([28.4, -82.3], 9);
+	
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+	subdomains: 'abcd',
+	maxZoom: 15
+    }).addTo(map);
+	
+</script>
+
+
+
+
+
+
+<!-- BarChart -->
+<script src="js/barchart_originalOD.js"></script>
+
+
+<!-- Flow Map Chart -->
+<script type="text/javascript" src="js/flowmap_originalOD.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
