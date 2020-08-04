@@ -1,0 +1,96 @@
+
+	
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+		
+		.chart-title {
+			display: inline-block;
+		}
+		
+		.table-title {
+			display: inline-block;
+		}
+		
+		h4 {
+			font-weight: bold;
+		}
+		
+		h5 {
+			font-weight: bold;
+			font-size: 18px;
+			color: orange;
+		}
+		
+		#parent {
+			display: flex;
+		}
+		#search-bar {
+			float: right;
+			margin: 80px 400px 20px 20px;
+		}
+		#map {
+			position: absolute;
+			left: 0px;
+			height: 860px;
+			width: 50%;
+			margin-top:70px;
+		}
+		
+		#data_chart {	
+			position: absolute;
+			height: 800px;
+			width: 800px;
+			margin-left: 1000px;
+			margin-top: 80px;
+		}
+		
+		#aadt {	
+			position: relative;
+			top: 20px;
+			width: 800px;
+			height: 780px;
+		}
+		
+		#custom-search-input{
+			padding: 3px;
+			border: solid 1px #E4E4E4;
+			border-radius: 6px;
+			background-color: #fff;
+		}
+
+		#custom-search-input input{
+			border: 0;
+			box-shadow: none;
+		}
+
+		#custom-search-input button{
+			margin: 2px 0 0 0;
+			background: none;
+			box-shadow: none;
+			border: 0;
+			color: #666666;
+			padding: 0 8px 0 10px;
+			border-left: solid 1px #ccc;
+		}
+
+		#custom-search-input button:hover{
+			border: 0;
+			box-shadow: none;
+			border-left: solid 1px #ccc;
+		}
+
+		#custom-search-input .glyphicon-search{
+			font-size: 23px;
+		}
+		
